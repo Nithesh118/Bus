@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking PDF</title>
+</head>
+<body>
+    <h1>Booking Details</h1>
+    <p>User: {{ booking.user.username }}</p>
+    <p>Bus Name: {{ booking.bus.bus_name }}</p>
+    <p>Bus Route: {{ booking.bus.start_location }} - {{ booking.bus.end_location }} ({{ booking.bus.start_datetime }})</p>
+    <p>Booking ID: {{ booking.id }}</p>
+    <p>Booking Date: {{ booking.booking_date }}</p>
+    <p>Tickets: {{ booking.tickets }}</p>
+    <p>Razorpay Order ID: {{ booking.razorpay_order_id }}</p>
+    {% if booking.qr_image %}
+        <img style="width: auto;height:auto ;" src="{{ booking.qr_image.url }}" alt="QR Code">
+    {% else %}
+        <p>QR code not available.</p>
+    {% endif %}
+</body>
+</html>
